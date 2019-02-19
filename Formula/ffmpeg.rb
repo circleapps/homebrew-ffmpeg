@@ -40,7 +40,6 @@ class Ffmpeg < Formula
   depends_on "libvorbis"
   depends_on "libvpx"
   depends_on "opus"
-  depends_on "rtmpdump"
   depends_on "sdl2"
   depends_on "snappy"
   depends_on "speex"
@@ -73,6 +72,7 @@ class Ffmpeg < Formula
   depends_on "openh264" => :optional
   depends_on "openjpeg" => :optional
   depends_on "openssl" => :optional
+  depends_on "rtmpdump" => :optional
   depends_on "rubberband" => :optional
   depends_on "srt" => :optional
   depends_on "tesseract" => :optional
@@ -105,7 +105,6 @@ class Ffmpeg < Formula
       --enable-libfreetype
       --enable-frei0r
       --enable-libass
-      --enable-librtmp
       --enable-libspeex
       --disable-libjack
       --disable-indev=jack
@@ -127,6 +126,7 @@ class Ffmpeg < Formula
     args << "--enable-libmodplug" if build.with? "libmodplug"
     args << "--enable-libopenh264" if build.with? "openh264"
     args << "--enable-librsvg" if build.with? "librsvg"
+    args << "--enable-librtmp" if build.with? "rtmpdump"
     args << "--enable-librubberband" if build.with? "rubberband"
     args << "--enable-libsoxr" if build.with? "libsoxr"
     args << "--enable-libsrt" if build.with? "srt"
