@@ -27,7 +27,6 @@ class Ffmpeg < Formula
   option "with-srt", "Enable SRT library"
   option "with-libvmaf", "Enable libvmaf scoring library"
   option "with-dav1d", "Enable dav1d library"
-  option "with-aom", "Enable aom library"
   option "with-disable-securetransport", "Disable Secure Transport"
 
   depends_on "nasm" => :build
@@ -40,6 +39,7 @@ class Ffmpeg < Formula
   depends_on "frei0r"
   depends_on "lame"
   depends_on "libass"
+  depends_on "libdav1d"
   depends_on "libvorbis"
   depends_on "libvpx"
   depends_on "opus"
