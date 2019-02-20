@@ -26,6 +26,7 @@ class Ffmpeg < Formula
   option "with-zimg", "Enable z.lib zimg library"
   option "with-srt", "Enable SRT library"
   option "with-libvmaf", "Enable libvmaf scoring library"
+  option "with-disable-securetransport", "Disable Secure Transport"
 
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
@@ -140,6 +141,7 @@ class Ffmpeg < Formula
     args << "--enable-libzimg" if build.with? "zimg"
     args << "--enable-libzmq" if build.with? "zeromq"
     args << "--enable-openssl" if build.with? "openssl"
+    args << "--disable-securetransport" if build.with? "disable-securetransport"
 
     if build.with? "opencore-amr"
       args << "--enable-version3"
