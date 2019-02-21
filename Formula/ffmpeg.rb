@@ -8,7 +8,8 @@ class Ffmpeg < Formula
 
   # This formula is for people that will compile with their chosen options
   bottle :unneeded
- 
+  
+  option "with-frei0r", "Enable frei0r library"
   option "with-gpl", "Enable GPL code"
   option "with-libass", "Enable libass library"
   option "with-libsoxr", "Enable the soxr resample library"
@@ -104,7 +105,6 @@ class Ffmpeg < Formula
       --enable-libxvid
       --enable-libfontconfig
       --enable-libfreetype
-      --enable-frei0r
       --enable-libspeex
       --disable-libjack
       --disable-indev=jack
@@ -141,6 +141,7 @@ class Ffmpeg < Formula
     args << "--enable-libzmq" if build.with? "zeromq"
     args << "--enable-openssl" if build.with? "openssl"
     args << "--enable-libdav1d" if build.with? "dav1d"
+    args << "--enable-frei0r" if build.with? "frei0r"
     args << "--disable-securetransport" if build.with? "disable-securetransport"
 
     if build.with? "opencore-amr"
