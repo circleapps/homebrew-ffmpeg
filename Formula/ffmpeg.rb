@@ -9,8 +9,6 @@ class Ffmpeg < Formula
   # This formula is for people that will compile with their chosen options
   bottle :unneeded
 
-  option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
-  option "with-fdk-aac", "Enable the Fraunhofer FDK AAC library"
   option "with-librsvg", "Enable SVG files as inputs via librsvg"
   option "with-libsoxr", "Enable the soxr resample library"
   option "with-libssh", "Enable SFTP protocol via libssh"
@@ -40,8 +38,12 @@ class Ffmpeg < Formula
   depends_on "frei0r"
   depends_on "lame"
   depends_on "libass"
+  depends_on "libbluray"
+  depends_on "libsoxr"
   depends_on "libvorbis"
   depends_on "libvpx"
+  depends_on "opencore-amr"
+  depends_on "openjpeg"
   depends_on "opus"
   depends_on "rtmpdump"
   depends_on "sdl2"
@@ -59,10 +61,7 @@ class Ffmpeg < Formula
     depends_on "linuxbrew/xorg/libxv"
   end
 
-  depends_on "chromaprint" => :optional
-  depends_on "fdk-aac" => :optional
-  depends_on "game-music-emu" => :optional
-  depends_on "libbluray" => :optional
+  
   depends_on "libbs2b" => :optional
   depends_on "libcaca" => :optional
   depends_on "libgsm" => :optional
@@ -120,7 +119,6 @@ class Ffmpeg < Formula
     end
 
     args << "--disable-htmlpages" # doubtful anyone will look at this. The same info is accessible through the man pages.
-    args << "--enable-chromaprint" if build.with? "chromaprint"
     args << "--enable-libbluray" if build.with? "libbluray"
     args << "--enable-libbs2b" if build.with? "libbs2b"
     args << "--enable-libcaca" if build.with? "libcaca"
