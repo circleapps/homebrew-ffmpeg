@@ -38,7 +38,6 @@ class Ffmpeg < Formula
   depends_on "dav1d"
   depends_on "fontconfig"
   depends_on "freetype"
-  depends_on "frei0r"
   depends_on "lame"
   depends_on "libbluray"
   depends_on "libsoxr"
@@ -60,7 +59,8 @@ class Ffmpeg < Formula
     depends_on "bzip2"
     depends_on "linuxbrew/xorg/libxv"
   end
-
+  
+  depends_on "frei0r" => :optional
   depends_on "libass" => :optional
   depends_on "libbs2b" => :optional
   depends_on "libcaca" => :optional
