@@ -8,8 +8,9 @@ class Ffmpeg < Formula
 
   # This formula is for people that will compile with their chosen options
   bottle :unneeded
-
-  option "with-librsvg", "Enable SVG files as inputs via librsvg"
+ 
+  option "with-gpl", "Enable GPL code"
+  option "with-libass", "Enable libass library"
   option "with-libsoxr", "Enable the soxr resample library"
   option "with-libssh", "Enable SFTP protocol via libssh"
   option "with-tesseract", "Enable the tesseract OCR engine"
@@ -19,6 +20,7 @@ class Ffmpeg < Formula
   option "with-openjpeg", "Enable JPEG 2000 image format"
   option "with-openssl", "Enable SSL support"
   option "with-rubberband", "Enable rubberband library"
+  option "with-rtmp", "Enable rtmp"
   option "with-webp", "Enable using libwebp to encode WEBP images"
   option "with-zeromq", "Enable using libzeromq to receive cmds sent through a libzeromq client"
   option "with-zimg", "Enable z.lib zimg library"
@@ -37,15 +39,12 @@ class Ffmpeg < Formula
   depends_on "freetype"
   depends_on "frei0r"
   depends_on "lame"
-  depends_on "libass"
   depends_on "libbluray"
   depends_on "libsoxr"
   depends_on "libvorbis"
   depends_on "libvpx"
   depends_on "opencore-amr"
-  depends_on "openjpeg"
   depends_on "opus"
-  depends_on "rtmpdump"
   depends_on "sdl2"
   depends_on "snappy"
   depends_on "speex"
@@ -61,7 +60,7 @@ class Ffmpeg < Formula
     depends_on "linuxbrew/xorg/libxv"
   end
 
-  
+  depends_on "libass" => :optional
   depends_on "libbs2b" => :optional
   depends_on "libcaca" => :optional
   depends_on "libgsm" => :optional
@@ -75,6 +74,7 @@ class Ffmpeg < Formula
   depends_on "openh264" => :optional
   depends_on "openjpeg" => :optional
   depends_on "openssl" => :optional
+  depends_on "rtmpdump" => :optional
   depends_on "rubberband" => :optional
   depends_on "srt" => :optional
   depends_on "tesseract" => :optional
@@ -92,7 +92,7 @@ class Ffmpeg < Formula
       --cc=#{ENV.cc}
       --host-cflags=#{ENV.cflags}
       --host-ldflags=#{ENV.ldflags}
-      --enable-gpl
+     
       --enable-libaom
       --enable-libmp3lame
       --enable-libopus
@@ -106,8 +106,6 @@ class Ffmpeg < Formula
       --enable-libfontconfig
       --enable-libfreetype
       --enable-frei0r
-      --enable-libass
-      --enable-librtmp
       --enable-libspeex
       --disable-libjack
       --disable-indev=jack
@@ -119,6 +117,8 @@ class Ffmpeg < Formula
     end
 
     args << "--disable-htmlpages" # doubtful anyone will look at this. The same info is accessible through the man pages.
+    args << "--enable-gpl" if build.with? "gpl"
+    args << "--enable-libass" if build.with? "libass"
     args << "--enable-libbluray" if build.with? "libbluray"
     args << "--enable-libbs2b" if build.with? "libbs2b"
     args << "--enable-libcaca" if build.with? "libcaca"
@@ -128,6 +128,7 @@ class Ffmpeg < Formula
     args << "--enable-libmodplug" if build.with? "libmodplug"
     args << "--enable-libopenh264" if build.with? "openh264"
     args << "--enable-librsvg" if build.with? "librsvg"
+    args << "--enable-librtmp" if build.with? "rtmp"
     args << "--enable-librubberband" if build.with? "rubberband"
     args << "--enable-libsoxr" if build.with? "libsoxr"
     args << "--enable-libsrt" if build.with? "srt"
