@@ -27,7 +27,6 @@ class Ffmpeg < Formula
   option "with-zimg", "Enable z.lib zimg library"
   option "with-srt", "Enable SRT library"
   option "with-libvmaf", "Enable libvmaf scoring library"
-  option "with-dav1d", "Enable dav1d library"
   option "with-disable-securetransport", "Disable Secure Transport"
 
   depends_on "nasm" => :build
@@ -35,7 +34,6 @@ class Ffmpeg < Formula
   depends_on "texi2html" => :build
 
   depends_on "aom"
-  depends_on "dav1d"
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "lame"
@@ -140,7 +138,6 @@ class Ffmpeg < Formula
     args << "--enable-libzimg" if build.with? "zimg"
     args << "--enable-libzmq" if build.with? "zeromq"
     args << "--enable-openssl" if build.with? "openssl"
-    args << "--enable-libdav1d" if build.with? "dav1d"
     args << "--enable-frei0r" if build.with? "frei0r"
     args << "--disable-securetransport" if build.with? "disable-securetransport"
 
