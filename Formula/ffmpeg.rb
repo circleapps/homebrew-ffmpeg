@@ -13,7 +13,6 @@ class Ffmpeg < Formula
   option "with-gpl", "Enable GPL code"
   option "with-libass", "Enable libass library"
   option "with-libsoxr", "Enable the soxr resample library"
-  option "with-libssh", "Enable SFTP protocol via libssh"
   option "with-tesseract", "Enable the tesseract OCR engine"
   option "with-libvidstab", "Enable vid.stab support for video stabilization"
   option "with-opencore-amr", "Enable Opencore AMR NR/WB audio format"
@@ -60,13 +59,11 @@ class Ffmpeg < Formula
   
   depends_on "frei0r" => :optional
   depends_on "libass" => :optional
-  depends_on "libbs2b" => :optional
   depends_on "libcaca" => :optional
   depends_on "libgsm" => :optional
   depends_on "libmodplug" => :optional
   depends_on "librsvg" => :optional
   depends_on "libsoxr" => :optional
-  depends_on "libssh" => :optional
   depends_on "libvidstab" => :optional
   depends_on "libvmaf" => :optional
   depends_on "opencore-amr" => :optional
@@ -117,7 +114,6 @@ class Ffmpeg < Formula
     args << "--disable-htmlpages" # doubtful anyone will look at this. The same info is accessible through the man pages.
     args << "--enable-gpl" if build.with? "gpl"
     args << "--enable-libass" if build.with? "libass"
-    args << "--enable-libbs2b" if build.with? "libbs2b"
     args << "--enable-libcaca" if build.with? "libcaca"
     args << "--enable-libfdk-aac" if build.with? "fdk-aac"
     args << "--enable-libgsm" if build.with? "libgsm"
