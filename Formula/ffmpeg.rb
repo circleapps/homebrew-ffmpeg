@@ -14,7 +14,6 @@ class Ffmpeg < Formula
   option "with-libass", "Enable libass library"
   option "with-tesseract", "Enable the tesseract OCR engine"
   option "with-libvidstab", "Enable vid.stab support for video stabilization"
-  option "with-opencore-amr", "Enable Opencore AMR NR/WB audio format"
   option "with-openh264", "Enable OpenH264 library"
   option "with-openjpeg", "Enable JPEG 2000 image format"
   option "with-openssl", "Enable SSL support"
@@ -59,7 +58,6 @@ class Ffmpeg < Formula
   depends_on "libmodplug" => :optional
   depends_on "librsvg" => :optional
   depends_on "libvidstab" => :optional
-  depends_on "opencore-amr" => :optional
   depends_on "openh264" => :optional
   depends_on "openjpeg" => :optional
   depends_on "openssl" => :optional
@@ -78,6 +76,9 @@ class Ffmpeg < Formula
       --cc=#{ENV.cc}
       --host-cflags=#{ENV.cflags}
       --host-ldflags=#{ENV.ldflags}
+      --enable-version3
+      --enable-libopencore-amrnb
+      --enable-libopencore-amrwb
       --enable-libaom
       --enable-libbluray
       --enable-libmp3lame
@@ -122,12 +123,6 @@ class Ffmpeg < Formula
     args << "--enable-openssl" if build.with? "openssl"
     args << "--enable-frei0r" if build.with? "frei0r"
     args << "--disable-securetransport" if build.with? "disable-securetransport"
-
-    if build.with? "opencore-amr"
-      args << "--enable-version3"
-      args << "--enable-libopencore-amrnb"
-      args << "--enable-libopencore-amrwb"
-    end
 
     if build.with? "openjpeg"
       args << "--enable-libopenjpeg"
