@@ -18,7 +18,6 @@ class Ffmpeg < Formula
   option "with-x264", "Enable x264 library"
   option "with-x265", "Enable x265 library"
   option "with-openjpeg", "Enable JPEG 2000 image format"
-  option "with-openssl", "Enable SSL support"
   option "with-rubberband", "Enable rubberband library"
   option "with-rtmp", "Enable rtmp"
   option "with-webp", "Enable using libwebp to encode WEBP images"
@@ -62,7 +61,6 @@ class Ffmpeg < Formula
   depends_on "libvidstab" => :optional
   depends_on "openh264" => :optional
   depends_on "openjpeg" => :optional
-  depends_on "openssl" => :optional
   depends_on "rtmpdump" => :optional
   depends_on "rubberband" => :optional
   depends_on "tesseract" => :optional
@@ -120,7 +118,6 @@ class Ffmpeg < Formula
     args << "--enable-libvidstab" if build.with? "libvidstab"
     args << "--enable-libwavpack" if build.with? "wavpack"
     args << "--enable-libwebp" if build.with? "webp"
-    args << "--enable-openssl" if build.with? "openssl"
     args << "--enable-frei0r" if build.with? "frei0r"
     args << "--enable-libx264" if build.with? "x264"
     args << "--enable-libx265" if build.with? "x265"
