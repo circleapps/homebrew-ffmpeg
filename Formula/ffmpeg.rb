@@ -10,6 +10,7 @@ class Ffmpeg < Formula
   bottle :unneeded
   
   option "with-frei0r", "Enable frei0r library"
+  option "with-subtitle", "Enable subtitle support"
   option "with-gpl", "Enable GPL code"
   option "with-libass", "Enable libass library"
   option "with-tesseract", "Enable the tesseract OCR engine"
@@ -27,8 +28,7 @@ class Ffmpeg < Formula
   depends_on "texi2html" => :build
 
   depends_on "aom"
-  depends_on "fontconfig"
-  depends_on "freetype"
+
   depends_on "lame"
   depends_on "libbluray"
   depends_on "libsoxr"
@@ -66,6 +66,9 @@ class Ffmpeg < Formula
   depends_on "two-lame" => :optional
   depends_on "wavpack" => :optional
   depends_on "webp" => :optional
+  depends_on "fontconfig" => :optional
+  depends_on "freetype" => :optional
+
 
   def install
     args = %W[
@@ -87,8 +90,6 @@ class Ffmpeg < Formula
       --enable-libvorbis
       --enable-libvpx
       --enable-libxvid
-      --enable-libfontconfig
-      --enable-libfreetype
       --enable-libspeex
       --enable-libsoxr
       --disable-libjack
@@ -118,7 +119,8 @@ class Ffmpeg < Formula
     args << "--enable-libwavpack" if build.with? "wavpack"
     args << "--enable-frei0r" if build.with? "frei0r"
     args << "--enable-libx264" if build.with? "x264"
-    args << "--enable-libx265" if build.with? "x265"
+    args << "--enable-libfontconfig" if build.with? "subtitle"
+    args << "--enable-libfreetype" if build.with? "subtitle"
     args << "--disable-securetransport" if build.with? "disable-securetransport"
 
     if build.with? "openjpeg"
