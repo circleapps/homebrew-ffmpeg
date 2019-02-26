@@ -20,7 +20,6 @@ class Ffmpeg < Formula
   option "with-openjpeg", "Enable JPEG 2000 image format"
   option "with-rubberband", "Enable rubberband library"
   option "with-rtmp", "Enable rtmp"
-  option "with-webp", "Enable using libwebp to encode WEBP images"
   option "with-disable-securetransport", "Disable Secure Transport"
 
   depends_on "nasm" => :build
@@ -117,7 +116,6 @@ class Ffmpeg < Formula
     args << "--enable-libtwolame" if build.with? "two-lame"
     args << "--enable-libvidstab" if build.with? "libvidstab"
     args << "--enable-libwavpack" if build.with? "wavpack"
-    args << "--enable-libwebp" if build.with? "webp"
     args << "--enable-frei0r" if build.with? "frei0r"
     args << "--enable-libx264" if build.with? "x264"
     args << "--enable-libx265" if build.with? "x265"
