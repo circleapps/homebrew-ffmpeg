@@ -22,8 +22,6 @@ class Ffmpeg < Formula
   option "with-rubberband", "Enable rubberband library"
   option "with-rtmp", "Enable rtmp"
   option "with-webp", "Enable using libwebp to encode WEBP images"
-  option "with-zeromq", "Enable using libzeromq to receive cmds sent through a libzeromq client"
-  option "with-zimg", "Enable z.lib zimg library"
   option "with-disable-securetransport", "Disable Secure Transport"
 
   depends_on "nasm" => :build
@@ -73,8 +71,6 @@ class Ffmpeg < Formula
   depends_on "two-lame" => :optional
   depends_on "wavpack" => :optional
   depends_on "webp" => :optional
-  depends_on "zeromq" => :optional
-  depends_on "zimg" => :optional
 
   def install
     args = %W[
@@ -124,8 +120,6 @@ class Ffmpeg < Formula
     args << "--enable-libvidstab" if build.with? "libvidstab"
     args << "--enable-libwavpack" if build.with? "wavpack"
     args << "--enable-libwebp" if build.with? "webp"
-    args << "--enable-libzimg" if build.with? "zimg"
-    args << "--enable-libzmq" if build.with? "zeromq"
     args << "--enable-openssl" if build.with? "openssl"
     args << "--enable-frei0r" if build.with? "frei0r"
     args << "--disable-securetransport" if build.with? "disable-securetransport"
