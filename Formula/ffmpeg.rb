@@ -92,6 +92,7 @@ class Ffmpeg < Formula
       --host-cflags=#{ENV.cflags}
       --host-ldflags=#{ENV.ldflags}
       --enable-libaom
+      --enable-libbluray
       --enable-libmp3lame
       --enable-libopus
       --enable-libsnappy
@@ -116,7 +117,6 @@ class Ffmpeg < Formula
     args << "--disable-htmlpages" # doubtful anyone will look at this. The same info is accessible through the man pages.
     args << "--enable-gpl" if build.with? "gpl"
     args << "--enable-libass" if build.with? "libass"
-    args << "--enable-libbluray" if build.with? "libbluray"
     args << "--enable-libbs2b" if build.with? "libbs2b"
     args << "--enable-libcaca" if build.with? "libcaca"
     args << "--enable-libfdk-aac" if build.with? "fdk-aac"
