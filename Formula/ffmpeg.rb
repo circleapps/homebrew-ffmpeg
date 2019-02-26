@@ -15,6 +15,8 @@ class Ffmpeg < Formula
   option "with-tesseract", "Enable the tesseract OCR engine"
   option "with-libvidstab", "Enable vid.stab support for video stabilization"
   option "with-openh264", "Enable OpenH264 library"
+  option "with-x264", "Enable x264 library"
+  option "with-x265", "Enable x265 library"
   option "with-openjpeg", "Enable JPEG 2000 image format"
   option "with-openssl", "Enable SSL support"
   option "with-rubberband", "Enable rubberband library"
@@ -87,8 +89,6 @@ class Ffmpeg < Formula
       --enable-libtheora
       --enable-libvorbis
       --enable-libvpx
-      --enable-libx264
-      --enable-libx265
       --enable-libxvid
       --enable-libfontconfig
       --enable-libfreetype
@@ -122,6 +122,8 @@ class Ffmpeg < Formula
     args << "--enable-libwebp" if build.with? "webp"
     args << "--enable-openssl" if build.with? "openssl"
     args << "--enable-frei0r" if build.with? "frei0r"
+    args << "--enable-libx264" if build.with? "x264"
+    args << "--enable-libx265" if build.with? "x265"
     args << "--disable-securetransport" if build.with? "disable-securetransport"
 
     if build.with? "openjpeg"
