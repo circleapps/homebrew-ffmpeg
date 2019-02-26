@@ -12,7 +12,6 @@ class Ffmpeg < Formula
   option "with-frei0r", "Enable frei0r library"
   option "with-gpl", "Enable GPL code"
   option "with-libass", "Enable libass library"
-  option "with-libsoxr", "Enable the soxr resample library"
   option "with-tesseract", "Enable the tesseract OCR engine"
   option "with-libvidstab", "Enable vid.stab support for video stabilization"
   option "with-opencore-amr", "Enable Opencore AMR NR/WB audio format"
@@ -59,7 +58,6 @@ class Ffmpeg < Formula
   depends_on "libgsm" => :optional
   depends_on "libmodplug" => :optional
   depends_on "librsvg" => :optional
-  depends_on "libsoxr" => :optional
   depends_on "libvidstab" => :optional
   depends_on "opencore-amr" => :optional
   depends_on "openh264" => :optional
@@ -94,6 +92,7 @@ class Ffmpeg < Formula
       --enable-libfontconfig
       --enable-libfreetype
       --enable-libspeex
+      --enable-libsoxr
       --disable-libjack
       --disable-indev=jack
     ]
