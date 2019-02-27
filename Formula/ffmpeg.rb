@@ -35,7 +35,7 @@ class Ffmpeg < Formula
   #depends_on "opencore-amr"
   depends_on "opus"
   #depends_on "sdl2"
-  depends_on "snappy"
+  
   depends_on "speex"
   depends_on "theora"
   depends_on "x264"
@@ -66,12 +66,14 @@ class Ffmpeg < Formula
   depends_on "webp" => :optional
   depends_on "sdl2" => :optional
   depends_on "lame" => :optional
+  depends_on "snappy" => :optional
   #depends_on "fontconfig" => :optional
   #depends_on "freetype" => :optional
  
   #--enable-libopencore-amrnb
   #--enable-libopencore-amrwb
   #--enable-libmp3lame
+  #--enable-libsnappy
 
   def install
     args = %W[
@@ -84,7 +86,6 @@ class Ffmpeg < Formula
       --enable-version3
       --enable-libaom
       --enable-libopus
-      --enable-libsnappy
       --enable-libtheora
       --enable-libvorbis
       --enable-libvpx
@@ -115,7 +116,6 @@ class Ffmpeg < Formula
     args << "--enable-librsvg" if build.with? "librsvg"
     args << "--enable-librtmp" if build.with? "rtmp"
     args << "--enable-librubberband" if build.with? "rubberband"
-    args << "--enable-libsoxr" if build.with? "libsoxr"
     args << "--enable-libtesseract" if build.with? "tesseract"
     args << "--enable-libtwolame" if build.with? "two-lame"
     args << "--enable-libvidstab" if build.with? "libvidstab"
