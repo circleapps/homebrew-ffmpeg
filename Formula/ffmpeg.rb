@@ -74,6 +74,8 @@ class Ffmpeg < Formula
   #--enable-libopencore-amrwb
   #--enable-libmp3lame
   #--enable-libsnappy
+  #--enable-libsoxr
+  #--enable-libspeex
 
   def install
     args = %W[
@@ -90,8 +92,6 @@ class Ffmpeg < Formula
       --enable-libvorbis
       --enable-libvpx
       --enable-libxvid
-      --enable-libspeex
-      --enable-libsoxr
       --disable-sdl2
       --disable-lzma
       --disable-libjack
