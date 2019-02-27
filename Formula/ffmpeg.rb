@@ -28,7 +28,7 @@ class Ffmpeg < Formula
   depends_on "texi2html" => :build
 
   depends_on "aom"
-  depends_on "lame"
+  
   depends_on "libsoxr"
   depends_on "libvorbis"
   depends_on "libvpx"
@@ -65,11 +65,13 @@ class Ffmpeg < Formula
   depends_on "wavpack" => :optional
   depends_on "webp" => :optional
   depends_on "sdl2" => :optional
+  depends_on "lame" => :optional
   #depends_on "fontconfig" => :optional
   #depends_on "freetype" => :optional
  
   #--enable-libopencore-amrnb
   #--enable-libopencore-amrwb
+  #--enable-libmp3lame
 
   def install
     args = %W[
@@ -81,7 +83,6 @@ class Ffmpeg < Formula
       --host-ldflags=#{ENV.ldflags}
       --enable-version3
       --enable-libaom
-      --enable-libmp3lame
       --enable-libopus
       --enable-libsnappy
       --enable-libtheora
