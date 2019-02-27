@@ -29,11 +29,10 @@ class Ffmpeg < Formula
 
   depends_on "aom"
   depends_on "lame"
-  #depends_on "libbluray"
   depends_on "libsoxr"
   depends_on "libvorbis"
   depends_on "libvpx"
-  depends_on "opencore-amr"
+  #depends_on "opencore-amr"
   depends_on "opus"
   #depends_on "sdl2"
   depends_on "snappy"
@@ -68,7 +67,9 @@ class Ffmpeg < Formula
   depends_on "sdl2" => :optional
   #depends_on "fontconfig" => :optional
   #depends_on "freetype" => :optional
-
+ 
+  #--enable-libopencore-amrnb
+  #--enable-libopencore-amrwb
 
   def install
     args = %W[
@@ -79,8 +80,6 @@ class Ffmpeg < Formula
       --host-cflags=#{ENV.cflags}
       --host-ldflags=#{ENV.ldflags}
       --enable-version3
-      --enable-libopencore-amrnb
-      --enable-libopencore-amrwb
       --enable-libaom
       --enable-libmp3lame
       --enable-libopus
