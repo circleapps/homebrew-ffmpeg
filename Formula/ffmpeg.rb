@@ -28,9 +28,8 @@ class Ffmpeg < Formula
   depends_on "texi2html" => :build
 
   depends_on "aom"
-
   depends_on "lame"
-  depends_on "libbluray"
+  #depends_on "libbluray"
   depends_on "libsoxr"
   depends_on "libvorbis"
   depends_on "libvpx"
@@ -83,7 +82,6 @@ class Ffmpeg < Formula
       --enable-libopencore-amrnb
       --enable-libopencore-amrwb
       --enable-libaom
-      --enable-libbluray
       --enable-libmp3lame
       --enable-libopus
       --enable-libsnappy
