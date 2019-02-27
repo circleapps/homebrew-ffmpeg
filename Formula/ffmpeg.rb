@@ -91,7 +91,7 @@ class Ffmpeg < Formula
       --enable-libspeex
       --enable-libsoxr
       --disable-sdl2
-      --disalbe-lzma
+      --disable-lzma
       --disable-libjack
       --disable-indev=jack
       --disable-filters
