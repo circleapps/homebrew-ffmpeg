@@ -96,6 +96,7 @@ class Ffmpeg < Formula
       --disable-sdl2
       --disable-libjack
       --disable-indev=jack
+      --disable-filter=drawtext
     ]
 
     if OS.mac?
