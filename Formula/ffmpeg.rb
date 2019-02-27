@@ -36,7 +36,7 @@ class Ffmpeg < Formula
   depends_on "libvpx"
   depends_on "opencore-amr"
   depends_on "opus"
-  depends_on "sdl2"
+  #depends_on "sdl2"
   depends_on "snappy"
   depends_on "speex"
   depends_on "theora"
@@ -66,8 +66,9 @@ class Ffmpeg < Formula
   depends_on "two-lame" => :optional
   depends_on "wavpack" => :optional
   depends_on "webp" => :optional
-  depends_on "fontconfig" => :optional
-  depends_on "freetype" => :optional
+  depends_on "sdl2" => :optional
+  #depends_on "fontconfig" => :optional
+  #depends_on "freetype" => :optional
 
 
   def install
@@ -92,6 +93,7 @@ class Ffmpeg < Formula
       --enable-libxvid
       --enable-libspeex
       --enable-libsoxr
+      --disable-sdl2
       --disable-libjack
       --disable-indev=jack
     ]
