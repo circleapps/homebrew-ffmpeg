@@ -98,6 +98,7 @@ class Ffmpeg < Formula
       --disable-indev=jack
       --disable-filters
       --enable-filter=delogo
+      --enable-filter=scale
     ]
 
     if OS.mac?
