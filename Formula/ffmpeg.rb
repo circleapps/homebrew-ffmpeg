@@ -35,6 +35,7 @@ class Ffmpeg < Formula
   #depends_on "opencore-amr"
   depends_on "opus"
   #depends_on "sdl2"
+  depends_on "libswresample"
   
   depends_on "speex"
   depends_on "theora"
@@ -99,6 +100,7 @@ class Ffmpeg < Formula
       --disable-filters
       --enable-filter=delogo
       --enable-filter=scale
+      --enable-filter=aresample 
     ]
 
     if OS.mac?
